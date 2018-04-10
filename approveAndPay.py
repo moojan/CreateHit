@@ -6,7 +6,7 @@
 
 
 import glob, os
-import boto,boto3
+import boto #,boto3
 import sys
 from boto.mturk.connection import MTurkConnection
 import csv
@@ -20,14 +20,13 @@ except ImportError:
         from sample import make_mturk_connection
 
 connection = make_mturk_connection()
-
-bonuses=getBonuses()
-HIT=getHIT()
+os.chdir("./HITIDs")
+bonuses={} #getBonuses()
 
 def approveAndPay(HitID, pay):
     global connection
     print ("Approving Workerss for HIT ID" + HitID)
-    if (!pay):
+    if (not pay):
         print ("This is a TEST run.")
     if (pay):
         print ("This is a REAL run")
@@ -44,11 +43,13 @@ def approveAndPay(HitID, pay):
             writer.writerow([HitID]+[mturk]+["approved"]+[bonuses[mturkID]])
 
 
-def createPaymentFile(pay):
+def createPayment(pay):
+    print "In payment"
     des=open('../payment.csv', 'w')
     writer = csv.writer(des)
     writer.writerow(["HIT ID"]+["mturkID"]+["status"]+["Bonus"])
     des.close()
+    print "creatingifle"
     for file in glob.glob("*.txt"):
         print "file:" + file
         with open(file,'r') as myfile:
@@ -57,5 +58,5 @@ def createPaymentFile(pay):
                 approveAndPay(line.replace("\n", ""), pay)
 
 pay = int(sys.argv[1])               
-createCommentsFile(pay)
+createPayment(pay)
 
