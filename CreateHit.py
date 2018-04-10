@@ -1,4 +1,9 @@
-#!/usr/bin/env python
+
+#######################################################################
+#  Author: Moojan Ghafurian  moojan@alumni.psu.edu   www.moojan.com   #
+#  Copyright (C) 2016  Moojan Ghafurian                               #
+#######################################################################
+
 
 import boto,boto3
 import os

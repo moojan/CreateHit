@@ -1,3 +1,10 @@
+
+#######################################################################
+#  Author: Moojan Ghafurian  moojan@alumni.psu.edu   www.moojan.com   #
+#  Copyright (C) 2016  Moojan Ghafurian                               #
+#######################################################################
+
+
 import glob, os
 import boto,boto3
 import sys

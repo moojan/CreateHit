@@ -1,3 +1,10 @@
+
+#######################################################################
+#  Author: Moojan Ghafurian  moojan@alumni.psu.edu   www.moojan.com   #
+#  Copyright (C) 2016  Moojan Ghafurian                               #
+#######################################################################
+
+
 from boto.mturk.connection import MTurkConnection
 
 def make_mturk_connection ():
